@@ -1,0 +1,94 @@
+{% extends 'crud/base.html' %}
+{% block body %}
+<h4 class="text-primary">Protocolo de Recebimento e Análise de Documentos</h4>
+        <hr style="border-top:1px dotted #000;"/>
+<form class="form-inline"  action="create" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="protocolo">Protocolo:</label>
+        <input type="text" name="protocolo" class="form-control" style="width:15%;" required="required"/>
+        <label for="datarecebimento">Data de Recebeimento:</label>
+        <input type="date" name="datarecebimento" class="form-control" style="width:20%;" required="required"/>
+        <label for="datadocumento">Data do Documento:</label>
+        <input type="date" name="datadocumento" class="form-control" style="width:20%;" required="required"/>
+        <label for="aeronave">Aeronave:</label>
+        <input  type="list" list="Aircraft" name="aeronave" class="data-list-input" style="width:15%;" required="required"/>
+        <datalist id="Aircraft">
+  	 <option value="PR-PDP">
+  	 <option value="PR-PDS">
+  	 <option value="PR-PTN">
+	</datalist>
+        <label for="tipodoc">Tipo Doc:</label>
+        <input type="text" name="tipodoc" class="form-control" style="width:20%;" required="required"/>
+        <label for="numdoc">Núm Documento:</label>
+        <input type="text" name="numdoc" class="form-control" style="width:30%;" required="required"/>
+        <label for="anexo">Anexo:</label>
+        <input type="text" name="anexo" class="form-control" style="width:30%;" required="required"/>
+        <label for="obsdoc">Obs.</label>
+        <input type="text" name="obsdoc" class="form-control" style="width:50%;" required="required"/>
+    </div>
+    <div class="form-group">
+
+        <label for="mecanico">Mecanico:</label>
+        <input type="text" name="mecanico" class="form-control" style="width:30%;" required="required"/>
+        <label for="inspetor">Inspetor:</label>
+        <input type="text" name="inspetor" class="form-control" style="width:30%;" required="required"/>
+        <label for="recebido">Recebido:</label>
+        <input type="text" name="recebido" class="form-control" style="width:10%;" required="required"/>
+        <label for="erros">Qtd. Erros:</label>
+        <input type="text" name="erros" class="form-control" style="width:30%;" required="required"/>
+        <label for="campos">Campos Errados:</label>
+        <input type="text" name="campos" class="form-control" style="width:30%;" required="required"/>
+     </div>
+     <div class="form-group">
+        <label for="descricao">Descricao dos Erros:</label>
+        <textarea type="text" name="descricao" class="form-control" cols="40" rows="5" required="required"/></textarea>
+     <div class="form-group">
+        <label for="status">Status:</label>
+        <input type="text" name="status" class="form-control" style="width:30%;" required="required"/>
+        <label for="datastatus">Data de Atualizacao:</label>
+        <input type="date" name="datastatus" class="form-control" style="width:30%;" required="required"/>
+        <button type="submit" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-plus"></span> ADD</button>
+    </div>
+        
+
+</form>
+<br />
+<table class="table table-bordered">
+    <thead class="alert-warning">
+        <tr>
+            <th>Protocolo</th>
+            <th>Data Recebimento</th>
+            <th>Data Documento</th>
+            <th>Aeronave</th>
+            <th>Tipo de Documento</th>
+            <th>Núm. Documento</th>
+            <th>Anexo</th>
+
+            <th>Status</th>
+            <th>Data de Atualizacao</th>
+            
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for member in members %}
+        <tr>
+            <td>{{ member.protocolo }}</td>
+            <td>{{ member.datarecebimento }}</td>
+            <td>{{ member.datadocumento }}</td>
+            <td>{{ member.aeronave }}</td>
+            <td>{{ member.tipodoc }}</td>
+            <td>{{ member.numdoc }}</td>
+            <td>{{ member.anexo }}</td>
+            <td>{{ member.status }}</td>
+            <td>{{ member.datastatus }}</td>
+            <td><center><a class="btn btn-sm btn-warning" href="edit/{{ member.id }}"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a class="btn btn-sm btn-warning" href="form/{{ member.id }}"><span class="glyphicon glyphicon-print"></span> Print</a> <a class="btn btn-sm btn-danger" href="delete/{{ member.id }}"><span class="glyphicon glyphicon-trash"></span> Delete</a></center></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+
+

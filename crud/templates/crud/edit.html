@@ -1,0 +1,81 @@
+{% extends 'crud/base.html' %}
+{% block body %}
+    <form method="POST" action="update/{{ members.id }}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="protocolo">Protocolo</label>
+            <input type="text" name="protocolo" value="{{ members.protocolo }}" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="datarecebimento">Data de Recebimento</label>
+            <input type="date" name="datarecebimento" value="{{ members.datarecebimento }}" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="datadicumento">Data Documento</label>
+            <input type="date" name="datadocumento" value="{{ members.datadocumento }}" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="aeronave">Aeronave</label>
+            <input  type="list" list="Aircraft" name="aeronave"  value="{{ members.aeronave }}" class="data-list-input" style="width:30%;" required="required"/>
+        	<datalist id="Aircraft">
+  	 	<option value="PR-PDP">
+  	 	<option value="PR-PDS">
+  	 	<option value="PR-PTN">
+        </div>
+        <div class="form-group">
+            <label for="tipodoc">Tipo de Documento</label>
+            <input type="text" name="tipodoc" value="{{ members.tipodoc }}" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="numdoc">Núm. Documento:</label>
+            <input type="text" name="numdoc" value="{{ members.numdoc }}" required="required"/>
+        </div>
+                <div class="form-group">
+            <label for="anexo">Anexo:</label>
+            <input type="text" name="anexo" value="{{ members.anexo }}"/>
+        </div>
+        <div class="form-group">
+            <label for="obsdoc">Obs.</label>
+            <input type="text" name="obsdoc" value="{{ members.obsdoc }}" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="mecanico">Mecanico</label>
+            <input type="text" name="mecanico" value="{{ members.mecanico }}" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="inspetor">Inspetor</label>
+            <input type="text" name="inspetor" value="{{ members.inspetor }}" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="recebido">Recebido</label>
+            <input type="text" name="recebido" value="{{ members.recebido }}" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="erros">Erros</label>
+            <input type="text" name="erros" value="{{ members.erros }}" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="campos">Campos Errados</label>
+            <input type="text" name="campos" value="{{ members.campos }}" required="required"/>
+        </div>        
+        <div class="form-group" >
+            <label for="descricao">Descricao dos Erros</label>
+            <textarea class="form-control" rows="4" name="descricao"   width="100%;" required="required">{{ members.descricao }}</textarea>
+        </div> 
+        <div class="form-group">
+            <label for="status">Status</label>
+            <input type="text" name="status" value="{{ members.status }}" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="datastatus">Data de Atualizacao</label>
+            <input type="text" name="datastatus" value="{{ members.datastatus }}" required="required"/>
+        </div>                  
+        <div class="form-group">
+            <button type="submit" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-edit"></span> Update</button>
+            <a class="btn btn-sm btn-warning" href="form/{{ member.id }}"><span class="glyphicon glyphicon-form"></span> Print</a>
+        </div>
+
+    </form>
+{% endblock %}
+
+

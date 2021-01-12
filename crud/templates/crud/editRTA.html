@@ -1,0 +1,220 @@
+{% extends 'crud/base.html' %}
+{% block body %}
+<h4 class="text-primary">Cadastro de Relatório Técnico de Aeronave</h4>
+<hr style="border-top:1px dotted #000;"/>
+<form method="POST" action="updateRTA/{{ members.id }}">
+     {% csrf_token %}
+<table style="margin-left: auto; margin-right: auto;">
+    <tbody>
+        <tr>
+            <td>Aeronave:</td>
+            <td>
+            <input type="text" name="Acft" value="{{ members.Acft }}" required="required" style="width:50%"/>
+            </td>
+            <td>N&uacute;m.: RTA</td>
+            <td>
+                <input type="text" name="NumRTA" value="{{ members.NumRTA }}" required="required" style="width:30%"/>
+            </td>
+            <td>Tipo de Reporte:</td>
+            <td>
+                <input type="text" name="Origem" value="{{ members.Origem}}" required="required" style="width:50%"/>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<table style="margin-left: auto; margin-right: auto;">
+    <tbody>
+        <tr>
+            <td>N&uacute;m. Voo</td>
+            <td>N&uacute;m. D.B.:</td>
+
+            <td>Trecho:</td>
+            <td>Data:</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="NumVoo" value="{{ members.NumVoo }}" required="required" style="width:30%"/>
+            </td>
+            <td>
+                <input type="text" name="NumDB" value="{{ members.NumDB }}" required="required" style="width:30%"/>
+            </td>
+            <td>
+                <input type="text" name="Trecho" value="{{ members.Trecho }}" required="required" style="width:50%"/>
+            </td>
+            <td>
+                <input type="date" name="DataRTA" value="{{ members.DataRTA }}" required="required" style="width:100%"/>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<table style="margin-left: auto; margin-right: auto;">
+    <tbody>
+        <tr>
+            <td><center>Discrep&acirc;ncia:</center></td>
+            <td><center>Nome</center></td>
+            <td><center>C&oacute;d. Anac:</center></td>
+        </tr>
+        <tr>
+            <td><textarea class="form-control" cols="40" rows="5" name="Disc">{{ members.Disc }}</textarea></td>
+            <td><center><input type="text" name="Mecanico1" value="{{ members.Mecanico1 }}" required="required" style="width:90%"/></center></td>
+            <td><center><input type="text" name="CodAnac1" value="{{ members.CodAnac1 }}" required="required" style="width:50%"/></center></td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<table style="margin-left: auto; margin-right: auto;">
+    <tbody>
+        <tr>
+            <td><center>Acao Corretiva</center></td>
+            <td><center>Nome</center></td>
+            <td><center>C&oacute;d. Anac:</center></td>
+        </tr>
+        <tr>
+            <td><textarea class="form-control" cols="40" rows="5" name="AcaoDisc">{{ members.AcaoDisc }}</textarea></td>
+            <td><center><input type="text" name="Mecanico2" value="{{ members.Mecanico2 }}" required="required" style="width:90%"/></center></td>
+            <td><center><input type="text" name="CodAnac2" value="{{ members.CodAnac2 }}" required="required" style="width:50%"/></center></td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<table style="margin-left: auto; margin-right: auto;">
+    <tbody>
+        <tr>
+            <td><center>RTA Ref.:</center></td>
+            <td><center>ATA:</center></td>
+            <td><center>MEL</center></td>
+            <td><center>ACR</center></td>
+            <td><center>ITEM REF.:</center></td>
+            <td><center>CAT</center></td>
+        </tr>
+        <tr>
+            <td><center><input type="text" name="RefRTA" value="{{ members.RefRTA }}" required="required" style="width:90%"/></center></td>
+            <td><center><input type="text" name="Ata" value="{{ members.Ata }}" required="required" style="width:90%"/></center></td>
+            <td><center><input type="text" name="Mel" value="{{ members.Mel }}" required="required" style="width:90%"/></center></td>
+            <td><center><input type="text" name="Acr" value="{{ members.Acr }}" required="required" style="width:90%"/></center></td>
+            <td><center><input type="text" name="RefItem" value="{{ members.RefItem }}" required="required" style="width:90%"/></center></td>
+            <td><center><input type="text" name="Cat" value="{{ members.Cat }}" required="required" style="width:90%"/></center></td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<table style="margin-left: auto; margin-right: auto;">
+    <tbody>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="3"><center>Removido</center></td>
+            <td colspan="3"><center>Instalado</center></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><center>Part Number</center></td>
+            <td><center>Serial Number</center></td>
+            <td><center>Posicao</center></td>
+            <td><center>Part Number</center></td>
+            <td><center>Serial Number</center></td>
+            <td><center>Posicao</center></td>
+        </tr>
+        <tr>
+            <td>Mov. 1</td>
+            <td><center><input type="text" name="SaidaPN1" value="{{ members.SaidaPN1 }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="SaidaSN1" value="{{ members.SaidaSN1 }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="SaidaPOS1" value="{{ members.SaidaPOS1 }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="EntradaPN1" value="{{ members.EntradaPN1 }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="EntradaSN1" value="{{ members.EntradaSN1 }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="EntradaPOS1" value="{{ members.EntradaPOS1 }}" required="required" style="width:80%"/></center></td>
+        </tr>
+        <tr>
+            <td>Mov. 2</td>
+            <td><center><input type="text" name="SaidaPN2" value="{{ members.SaidaPN2 }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="SaidaSN2" value="{{ members.SaidaSN2 }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="SaidaPOS2" value="{{ members.SaidaPOS2 }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="EntradaPN2" value="{{ members.EntradaPN2 }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="EntradaSN2" value="{{ members.EntradaSN2 }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="EntradaPOS2" value="{{ members.EntradaPOS2 }}" required="required" style="width:80%"/></center></td>
+        </tr>
+        <tr>
+            <td>Mov. 3</td>
+            <td><center><input type="text" name="SaidaPN3" value="{{ members.SaidaPN3 }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="SaidaSN3" value="{{ members.SaidaSN3 }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="SaidaPOS3" value="{{ members.SaidaPOS3 }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="EntradaPN3" value="{{ members.EntradaPN3 }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="EntradaSN3" value="{{ members.EntradaSN3 }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="EntradaPOS3" value="{{ members.EntradaPOS3 }}" required="required" style="width:80%"/></center></td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<table style="margin-left: auto; margin-right: auto;">
+    <tbody>
+        <tr>
+            <td colspan="3"><center>ABASTECIMENTO DE &Oacute;LEO</center></td>
+        </tr>
+        <tr>
+            <td><center>ENG 01</center></td>
+            <td><center>ENG 02</center></td>
+            <td><center>HIDRAUDLICO</center></td>
+        </tr>
+        <tr>
+            <td><center><input type="text" name="OleoLH" value="{{ members.OleoLH }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="OleoRH" value="{{ members.OleoRH }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="OleoHID" value="{{ members.OleoHID }}" required="required" style="width:80%"/></center></td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<table style="margin-left: auto; margin-right: auto;">
+    <tbody>
+        <tr>
+            <td colspan="3"><center>Registro de Insp.</center></td>
+        </tr>
+        <tr>
+            <td><center>Insp. Di&aacute;ria</center></td>
+            <td><center>Insp. Linha</center></td>
+            <td><center>Insp. Semanal</center></td>
+        </tr>
+        <tr>
+            <td><center><input type="text" name="Diaria" value="{{ members.Diaria }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="Linha" value="{{ members.Linha }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="Semanal" value="{{ members.Semanal }}" required="required" style="width:80%"/></center></td>
+        </tr>
+        <tr>
+            <td><center>Rev. PMA</center></td>
+            <td><center>Rev. JIC.</center></td>
+            <td><center>Hora:</center></td>
+        </tr>
+        <tr>
+            <td><center><input type="text" name="PMA" value="{{ members.PMA }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="JIC" value="{{ members.JIC }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="Hora" value="{{ members.Hora }}" required="required" style="width:80%"/></center></td>
+        </tr>
+        <tr>
+            <td><center>Data</center></td>
+            <td><center>Cod. Anac</center></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><center><input type="text" name="DataLib" value="{{ members.DataLib }}" required="required" style="width:80%"/></center></td>
+            <td><center><input type="text" name="CodANACLib" value="{{ members.CodANACLib }}" required="required" style="width:80%"/></center></td>
+            <td>&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+<table style="margin-left: auto; margin-right: auto;">
+    <tbody>
+    <tr>
+        <center>
+        <button type="submit" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-edit"></span> Update</button>
+        </center>
+        
+    </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+
+</form>
+{% endblock %}
+
+

@@ -1,0 +1,52 @@
+{% extends 'crud/base.html' %}
+{% block body %}
+<table style="height: 26px; margin-left: auto; margin-right: auto;" width="100%">
+    <tbody>
+        <tr>
+            <td style="width: 706px;"><center>CONTROLE DE DOCUMENTOS</center></td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<table style="margin-left: auto; margin-right: auto;">
+    <tbody>
+        <tr style="height: 23px;">
+            <td style="height: 23px;">
+            <a class="btn btn-sm btn-warning" href="cadRTA{{ member.id }}"><span class="glyphicon glyphicon-edit"></span> CADASTRO DE RTA/TLB </a> 
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<table style="margin-left: auto; margin-right: auto;">
+    <tbody>
+        <tr>
+            <td>
+                <a class="btn btn-sm btn-warning" href="cadprot{{ member.id }}"><span class="glyphicon glyphicon-edit"></span> PROTOCOLO DE CORRECAO </a> 
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<table style="height: 24px;" width="100%">
+    <tbody>
+        <tr>
+            <td style="width: 721px;"><center>ENGENHARIA</center></td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<table style="margin-left: auto; margin-right: auto;">
+    <tbody>
+        <tr>
+            <td>
+            <a class="btn btn-sm btn-warning" href="cadprot{{ member.id }}"><span class="glyphicon glyphicon-edit"></span> FAPT </a> 
+        </td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}
+
+
+

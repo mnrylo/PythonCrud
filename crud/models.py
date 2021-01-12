@@ -1,0 +1,78 @@
+from django.db import models
+import django_filters
+# Create your models here.
+
+
+class Member(models.Model):
+   
+    protocolo = models.CharField(max_length=40)
+    datarecebimento  = models.CharField(max_length=40)
+    datadocumento  = models.CharField(max_length=40)
+    aeronave  = models.CharField(max_length=10)
+    tipodoc = models.CharField(max_length=10)
+    numdoc=models.CharField(max_length=40)
+    anexo=models.CharField(max_length=40)
+    obsdoc=models.CharField(max_length=200)
+    mecanico=models.CharField(max_length=40)
+    inspetor=models.CharField(max_length=40)
+    recebido=models.CharField(max_length=10)
+    erros=models.CharField(max_length=200)
+    campos=models.CharField(max_length=10)
+    descricao=models.CharField(max_length=200)
+    status=models.CharField(max_length=10)
+    datastatus=models.CharField(max_length=40)
+    def __str__(self):
+        return self.protocolo + " " + self.datarecebimento+ " " + self.datadocumento+ " " + self.aeronave+ " " + self.tipodoc+ " " + self.numdoc+ " " + self.anexo+ " " + self.obsdoc+ " " + self.mecanico+ " " + self.inspetor+ " " + self.recebido+ " " + self.erros+ " " + self.campos+ " " + self.descricao+ " " + self.status+ " " + self.datastatus
+
+class Relatorio(models.Model):
+   
+    Acft = models.CharField(max_length=40)
+    NumRTA = models.CharField(max_length=40)
+    Origem = models.CharField(max_length=40)
+    NumVoo = models.CharField(max_length=40)
+    NumDB = models.CharField(max_length=40)
+    Trecho = models.CharField(max_length=40)
+    DataRTA = models.CharField(max_length=10)
+    Disc = models.CharField(max_length=300)
+    Mecanico1 = models.CharField(max_length=40)
+    CodAnac1 = models.CharField(max_length=40)
+    AcaoDisc = models.CharField(max_length=300)
+    Mecanico2 = models.CharField(max_length=40)
+    CodAnac2 = models.CharField(max_length=40)
+    RefRTA = models.CharField(max_length=40)
+    Ata = models.CharField(max_length=40)
+    Mel = models.CharField(max_length=40)
+    Acr = models.CharField(max_length=40)
+    RefItem = models.CharField(max_length=40)
+    Cat = models.CharField(max_length=40)
+    SaidaPN1 = models.CharField(max_length=40)
+    SaidaSN1 = models.CharField(max_length=40)
+    SaidaPOS1  = models.CharField(max_length=40)
+    EntradaPN1  = models.CharField(max_length=40)
+    EntradaSN1  = models.CharField(max_length=40)
+    EntradaPOS1  = models.CharField(max_length=40)
+    SaidaPN2  = models.CharField(max_length=40)
+    SaidaSN2  = models.CharField(max_length=40)
+    SaidaPOS2  = models.CharField(max_length=40)
+    EntradaPN2  = models.CharField(max_length=40)
+    EntradaSN2  = models.CharField(max_length=40)
+    EntradaPOS2  = models.CharField(max_length=40)
+    SaidaPN3  = models.CharField(max_length=40)
+    SaidaSN3  = models.CharField(max_length=40)
+    SaidaPOS3  = models.CharField(max_length=40)
+    EntradaPN3  = models.CharField(max_length=40)
+    EntradaSN3  = models.CharField(max_length=40)
+    EntradaPOS3  = models.CharField(max_length=40)
+    OleoLH  = models.CharField(max_length=40)
+    OleoRH  = models.CharField(max_length=40)
+    OleoHID  = models.CharField(max_length=40)
+    Diaria  = models.CharField(max_length=40)
+    Linha  = models.CharField(max_length=40)
+    Semanal  = models.CharField(max_length=40)
+    PMA  = models.CharField(max_length=40)
+    JIC  = models.CharField(max_length=40)
+    Hora  = models.CharField(max_length=40)
+    DataLib  = models.CharField(max_length=40)
+    CodANACLib  = models.CharField(max_length=40)
+    def __str__(self):
+        return self.Acft + " " + self.Origem + " " + self.NumVoo + " " + self.NumdDB + " " + self.Trecho +self.DataRTA + " " + self.Disc + " " + self.Mecanico1 + " " + self.CodAnac1+ " " + self.Mecanico2 + " " + self.CodAnac2 + " " + self.RefRTA + " " + self.Ata + " " + self.Mel + " " + self.Acr + " " + self.RefItem + " " + self.Cat + " " + self.SaidaPN1 + " " + self.SaidaSN1 + " " + self.SaidaPOS1+ " " + self.EntradaPN1 + " " + self.EntradaSN1 + " " + self.EntradaPOS1+ " " + self.SaidaPN2 + " " + self.SaidaSN2 + " " + self.SaidaPOS2+ " " + self.EntradaPN2 + " " + self.EntradaSN2 + " " + self.EntradaPOS2+ " " + self.SaidaPN3 + " " + self.SaidaSN3 + " " + self.SaidaPOS3+ " " + self.EntradaPN3 + " " + self.EntradaSN3 + " " + self.EntradaPOS3+ " " + self.OleoLH+ " " + self.OleoRH+ " " + self.OleoHID+ " " + self.Diaria+ " " + self.Linha+ " " +self.Semanal+ " " + self.PMA+ " " + self.JIC+ " " + self.Hora+ " " + self.DataLib+ " " + self.CodANACLib

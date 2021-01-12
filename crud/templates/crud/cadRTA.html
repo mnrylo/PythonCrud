@@ -1,0 +1,53 @@
+{% extends 'crud/base.html' %}
+{% block body %}
+<h4 class="text-primary">Cadastro de Relatório Técnico de Aeronave</h4>
+        <hr style="border-top:1px dotted #000;"/>
+<form class="form-inline"  action="createRTA" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="Acft">Aeronave:</label>
+        <input  type="list" list="Aircraft" name="Acft" class="data-list-input" style="width:15%;" required="required"/>
+        <datalist id="Aircraft">
+            <option value="PR-PDP">
+            <option value="PR-PDS">
+            <option value="PR-PTN">
+        </datalist>
+        <label for="NumRTA">Número RTA</label>
+        <input type="text" name="NumRTA" class="form-control" style="width:20%;" required="required"/>
+        
+    </div>
+    <div class="form-group">
+    
+        <button type="submit" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-plus"></span>ADD</button>
+    </div>
+        
+
+</form>
+<br />
+<table class="table table-bordered">
+    <thead class="alert-warning">
+        <tr>
+            <th>Aeronave</th>
+            <th>Número do RTA</th>
+            <th>MEL</th>
+            <th>ACR</th>              
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for member in members %}
+        <tr>
+            <td>{{ member.Acft }}</td>
+            <td>{{ member.NumRTA }}</td>
+            <td>{{ member.Mel }}</td>
+            <td>{{ member.Acr }}</td>
+            
+            <td><center><a class="btn btn-sm btn-warning" href="editRTA/{{ member.id }}"><span class="glyphicon glyphicon-edit"></span> Edit</a><a class="btn btn-sm btn-danger" href="deleteRTA/{{ member.id }}"><span class="glyphicon glyphicon-trash"></span> Delete</a></center></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+
+

@@ -1,0 +1,172 @@
+{% extends 'crud/base.html' %}
+{% block body %}
+    <form method="POST" action="update/{{ members.id }}">
+        {% csrf_token %}
+ <!-- DivTable.com -->
+<table style="margin-left: auto; margin-right: auto;">
+    <tbody>
+
+        <tr style="height: 23px;">
+            <td style="height: 23px;width: 20%"><center>Tipo de Documento: <br>Formul&aacute;rio</center></td>
+            <td style="height: 23px;width: 20%"><center>C&oacute;d.: <br>F-MNT-CTM-002-12</center></td>
+            <td style="height: 23px;width: 20%"><center>Ver. 00</center></td>
+            <td style="height: 23px;width: 20%"><center>Validade:<br>05/08/2021</center></td>
+        </tr>
+
+    </tbody>
+</table>
+<table style="margin-left: auto; margin-right: auto;">
+        <br>
+    <tbody>
+        <tr style="height: 23px;">
+            <td style="height: 23px;column-width: 20%">Número da Ficha</td>
+             <td style="height: 23px;">Aeronave:</td>
+            <td style="height: 23px;"></td>
+            <td style="height: 23px;"></td>
+        </tr>
+        <tr style="height: 23px;">
+            <td style="height: 23px;"><b>CTM-{{ members.id }}/21</b></td>
+            <td style="height: 23px;">
+                <div class="form-group">
+                    <input type="text" name="aeronave" value="{{ members.aeronave }}" required="required"/>
+                </div>
+            </td>
+            <td style="height: 23px;"></td>
+
+        </tr>
+        <tr style="height: 23px;">
+            <td style="height: 23px;">&nbsp;</td>
+            <td style="height: 23px;">Data:</td>
+            <td style="height: 23px;">Mecanico:</td>
+            <td style="height: 23px;">
+                <p class="western" lang="en-US" style="margin-bottom: 0cm; line-height: 100%; orphans: 0; widows: 0;" align="center">Inspetor:</p>
+            </td>
+        </tr>
+        <tr style="height: 23px;">
+            <td style="height: 23px;">Setor Respons&aacute;vel: <br>MNT - MAO</td>
+            <td style="height: 23px;">
+                <div class="form-group">
+                <input type="text" name="datastatus" value="{{ members.datastatus }}" required="required"/>
+                </div>  
+            </td>
+            <td style="height: 23px;">
+                <div class="form-group">
+                    <input type="text" name="mecanico" value="{{ members.mecanico }}" required="required"/>
+                </div>
+            </td>
+            <td style="height: 23px;">
+                <div class="form-group">
+                    <input type="text" name="inspetor" value="{{ members.inspetor }}" required="required"/>
+                </div>
+            </td>
+        </tr>
+        <tr style="height: 23px;">
+            <td style="height: 23px;"></td>
+            <td style="height: 23px;">Documentos</td>
+            <td style="height: 23px;">Anexo</td>
+            <td style="height: 23px;">Data</td>
+           
+        </tr>
+        <tr style="height: 23px;">
+            <td style="height: 23px;">Anexos</td>
+            <td style="height: 23px;">
+                <div class="form-group">
+                <input type="text" name="numdoc" value="{{ members.numdoc }}" required="required"/>
+            </div>
+            </td>
+            <td style="height: 23px;">
+            <div class="form-group">
+                <input type="text" name="anexo" value="{{ members.anexo }}" required="required"/>
+            </div>
+            </td>
+            <td style="height: 23px;">
+            <div class="form-group">
+                <input type="text" name="datadocumento" value="{{ members.datadocumento }}" required="required"/>
+            </div>
+            </td>
+            <td style="height: 23px;">&nbsp;</td>
+            <td style="height: 23px;">&nbsp;</td>
+        </tr>
+    </tbody>
+</table >
+
+<table style="margin-left: auto; margin-right: auto;">
+    <tbody>
+        <tr><td><center><b>DISCREPANCIA</b></center></td></tr>
+    </tbody>
+</table>
+
+<table style="height: 100px;margin-left: auto; margin-right: auto;" border="-" width="80%">
+    <tbody>
+        <tr>
+            <td style="width: 572px;">
+                <div class="form-group" >
+                    <textarea class="form-control" rows="4" name="descricao"   width="80%;">{{ members.descricao }}</textarea>
+                    
+                </div> 
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<table style="margin-left: auto; margin-right: auto;">
+    <tbody>
+        <tr>
+            <td>
+                <p class="western" lang="en-US" style="margin-bottom: 0cm; line-height: 100%; orphans: 0; widows: 0;" align="center"><strong>RESPOSTA A A&Ccedil;&Atilde;O</strong></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table style="height: 100px;margin-left: auto; margin-right: auto;" border="-" width="80%">
+    <tbody>
+        <tr>
+            <td style="width: 573px;">&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<table style="margin-left: auto; margin-right: auto;">
+    <tbody>
+        <tr style="height: 23px;">
+            <td style="width: 372.183px; height: 23px;">RESPONS&Aacute;VEL:______________________</td>
+            <td style="width: 198.817px; height: 23px;">DATA:____/____/____</td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<table style="margin-left: auto; margin-right: auto;">
+    <tbody>
+        <tr>
+            <td>
+                <p class="western" lang="en-US" style="margin-bottom: 0cm; line-height: 100%; orphans: 0; widows: 0;" align="center"><strong>A&Ccedil;&Atilde;O DE CORRE&Ccedil;&Atilde;O</strong></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table style="height: 100px;margin-left: auto; margin-right: auto;" border="-" width="80%">
+    <tbody>
+        <tr>
+            <td style="width: 572px;">&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 572px;">
+    <tbody>
+        <tr>
+            <td>DATA DE ATUALIZACAO:
+                <div class="form-group">
+                <input type="text" name="datastatus" value="{{ members.datastatus }}" required="required"/>
+                </div>  
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+    </form>
+{% endblock %}
+
+
